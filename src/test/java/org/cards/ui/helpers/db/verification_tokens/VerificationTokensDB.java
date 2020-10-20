@@ -4,16 +4,14 @@ import org.cards.ui.helpers.db.BaseDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import static org.cards.ui.helpers.db.verification_tokens.VerificationTokensNames.*;
 
 public class VerificationTokensDB extends BaseDB {
-    private final ArrayList<HashMap<String, Object>> result;
 
-    public VerificationTokensDB() {
-        this.result = new ArrayList<>();
+    public VerificationTokensDB(String email) {
+        super(email);
     }
 
     private HashMap<String, Object> insertTableDataToHashMap(ResultSet resultSet) throws SQLException {
@@ -27,16 +25,14 @@ public class VerificationTokensDB extends BaseDB {
         return resultRow;
     }
 
-    public ArrayList<HashMap<String, Object>> getByUserId(String user){
-        ResultSet rs = executeScript("SELECT * FROM verification_tokens WHERE id=" + user + ";");
+    public String getToken(){
+        String  result = null;
+        ResultSet rs = executeScript("SELECT * FROM verification_tokens WHERE id=" + userId + ";");
         try {
-            while (rs.next()) {
-                this.result.add(insertTableDataToHashMap(rs));
-            }
+            result = rs.getString(TOKEN);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return result;
-
     }
 }
