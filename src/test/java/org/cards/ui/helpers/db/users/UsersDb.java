@@ -31,7 +31,7 @@ public class UsersDb extends BaseDB {
 
     public ArrayList<HashMap<String, Object>> getFullData() {
         ArrayList<HashMap<String, Object>> result = new ArrayList<>();
-        ResultSet rs = executeScript("SELECT * FROM users WHERE id=" + userId + ";");
+        ResultSet rs = executeGet("SELECT * FROM users WHERE id=" + userId + ";");
         try {
             while (rs.next()) {
                 result.add(insertTableDataToHashMap(rs));
@@ -44,7 +44,7 @@ public class UsersDb extends BaseDB {
 
     public boolean isVerified() {
         boolean isVerified = false;
-        ResultSet rs = executeScript("SELECT * FROM users WHERE id=" + userId + ";");
+        ResultSet rs = executeGet("SELECT * FROM users WHERE id=" + userId + ";");
         try {
             while (rs.next()) {
                 if (rs.getInt(IS_VERIFIED) == 1) {
@@ -55,5 +55,10 @@ public class UsersDb extends BaseDB {
             System.out.println(e.getMessage());
         }
         return isVerified;
+    }
+
+    public void setVerified() {
+        String query = "UPDATE users SET is_verified=1 WHERE id=" + userId + ";";
+        executeUpdate(query);
     }
 }
