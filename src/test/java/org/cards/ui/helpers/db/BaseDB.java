@@ -8,31 +8,48 @@ import java.sql.SQLException;
 
 public class BaseDB {
     protected int userId;
+    private final String url = "jdbc:mysql://127.0.0.1:3306/cards";
+    private final String user = "user";
+    private final String password = "pass";
 
     public BaseDB(String email) {
         getUserIdByEmail(email);
     }
 
-    protected ResultSet executeScript(String sql) {
-        String url = "jdbc:mysql://127.0.0.1:3306/cards";
-        String user = "user";
-        String password = "pass";
+    private void getUserIdByEmail(String email) {
+        String query = "SELECT * FROM users WHERE email='" + email + "';";
+        ResultSet rs = executeGet(query);
+        try {
+            if (rs.next()) {
+                userId = rs.getInt("id");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public ResultSet executeGet(String sql) {
         ResultSet result = null;
         try {
             Connection con = DriverManager.getConnection(url, user, password);
             PreparedStatement pst = con.prepareStatement(sql);
             result = pst.executeQuery();
-            con.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return result;
     }
 
-    private void getUserIdByEmail(String email) {
-        ResultSet rs = executeScript("SELECT id FROM cards.users WHERE email=" + email + ";");
+    public void executeUpdate(String sql) {
         try {
-            userId = rs.getInt("id");
+            Connection con = DriverManager.getConnection(url, user, password);
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.executeUpdate();
+            con.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

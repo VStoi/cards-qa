@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import static org.cards.ui.helpers.db.verification_tokens.VerificationTokensNames.*;
+import static org.cards.ui.helpers.db.verification_tokens.VerificationTokensConstants.*;
 
 public class VerificationTokensDB extends BaseDB {
 
@@ -27,9 +27,11 @@ public class VerificationTokensDB extends BaseDB {
 
     public String getToken(){
         String  result = null;
-        ResultSet rs = executeScript("SELECT * FROM verification_tokens WHERE id=" + userId + ";");
+        ResultSet rs = executeGet("SELECT * FROM verification_tokens WHERE id='" + userId + "';");
         try {
-            result = rs.getString(TOKEN);
+            while (rs.next()) {
+                result = rs.getString(TOKEN);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
