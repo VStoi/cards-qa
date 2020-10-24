@@ -1,6 +1,6 @@
 package org.cards.ui.helpers.db.verification_tokens;
 
-public class VerificationTokensNames {
+public class VerificationTokensConstants {
     public static final String ID = "id";
     public static final String ATTEMPT = "attempt";
     public static final String TOKEN = "token";

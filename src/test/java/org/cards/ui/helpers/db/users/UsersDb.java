@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.cards.ui.helpers.db.users.UserDbNames.*;
+import static org.cards.ui.helpers.db.users.UserDbConstants.*;
 
 public class UsersDb extends BaseDB {
     public UsersDb(String email) {

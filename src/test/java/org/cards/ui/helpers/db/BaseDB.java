@@ -20,8 +20,9 @@ public class BaseDB {
         String query = "SELECT * FROM users WHERE email='" + email + "';";
         ResultSet rs = executeGet(query);
         try {
-            rs.next();
-            userId = rs.getInt("id");
+            if (rs.next()) {
+                userId = rs.getInt("id");
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
