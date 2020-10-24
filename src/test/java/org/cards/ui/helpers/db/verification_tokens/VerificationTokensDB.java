@@ -27,9 +27,11 @@ public class VerificationTokensDB extends BaseDB {
 
     public String getToken(){
         String  result = null;
-        ResultSet rs = executeGet("SELECT * FROM verification_tokens WHERE id=" + userId + ";");
+        ResultSet rs = executeGet("SELECT * FROM verification_tokens WHERE id='" + userId + "';");
         try {
-            result = rs.getString(TOKEN);
+            while (rs.next()) {
+                result = rs.getString(TOKEN);
+            }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
