@@ -1,4 +1,4 @@
-package org.cards.ui.pages;
+package org.cards.pages;
 
 import org.openqa.selenium.By;
 

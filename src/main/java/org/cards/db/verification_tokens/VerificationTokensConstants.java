@@ -1,4 +1,4 @@
-package org.cards.ui.helpers.db.verification_tokens;
+package org.cards.db.verification_tokens;
 
 public class VerificationTokensConstants {
     public static final String ID = "id";

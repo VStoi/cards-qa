@@ -1,12 +1,12 @@
-package org.cards.ui.helpers.db.verification_tokens;
+package org.cards.db.verification_tokens;
 
-import org.cards.ui.helpers.db.BaseDB;
+import org.cards.db.BaseDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import static org.cards.ui.helpers.db.verification_tokens.VerificationTokensConstants.*;
+import static org.cards.db.verification_tokens.VerificationTokensConstants.*;
 
 public class VerificationTokensDB extends BaseDB {
 

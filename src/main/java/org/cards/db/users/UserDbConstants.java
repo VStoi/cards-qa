@@ -1,4 +1,4 @@
-package org.cards.ui.helpers.db.users;
+package org.cards.db.users;
 
 public class UserDbConstants {
     public static final String ID = "id";

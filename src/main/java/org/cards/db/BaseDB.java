@@ -1,4 +1,4 @@
-package org.cards.ui.helpers.db;
+package org.cards.db;
 
 import java.sql.PreparedStatement;
 import java.sql.Connection;

@@ -1,9 +1,9 @@
-package org.cards.ui.tests;
+package tests;
 
 import com.codeborne.selenide.WebDriverRunner;
-import org.cards.ui.helpers.db.verification_tokens.VerificationTokensDB;
-import org.cards.ui.pages.HomePage;
-import org.cards.ui.pages.SignUpPage;
+import org.cards.db.verification_tokens.VerificationTokensDB;
+import org.cards.pages.HomePage;
+import org.cards.pages.SignUpPage;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.*;

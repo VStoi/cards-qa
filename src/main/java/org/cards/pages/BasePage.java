@@ -1,8 +1,7 @@
-package org.cards.ui.pages;
-import org.cards.ui.constants.BaseConstants;
+package org.cards.pages;
+import org.cards.constants.BaseConstants;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
 
 
 public class BasePage {

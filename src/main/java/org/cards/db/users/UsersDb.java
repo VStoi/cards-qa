@@ -1,13 +1,13 @@
-package org.cards.ui.helpers.db.users;
+package org.cards.db.users;
 
-import org.cards.ui.helpers.db.BaseDB;
+import org.cards.db.BaseDB;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.cards.ui.helpers.db.users.UserDbConstants.*;
+import static org.cards.db.users.UserDbConstants.*;
 
 public class UsersDb extends BaseDB {
     public UsersDb(String email) {
